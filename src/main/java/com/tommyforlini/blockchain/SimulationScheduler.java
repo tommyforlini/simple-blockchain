@@ -71,6 +71,11 @@ public class SimulationScheduler {
                 System.out.println("Previous Hashes not equal");
                 return false;
             }
+            //compare registered hash and registered next hash
+            if (!currentBlock.getHash().equals(previousBlock.getNextHash())) {
+                System.out.println("Next Hashes not equal");
+                return false;
+            }
             //check if hash is solved
             if (!currentBlock.getHash().substring(0, difficulty).equals(hashTarget)) {
                 System.out.println("Block not mined");
